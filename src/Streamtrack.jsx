@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./StreamTrack.css";
+import "./Streamtrack.css";
 
 // ── Config //
 const ADMIN_PIN = "1234";
