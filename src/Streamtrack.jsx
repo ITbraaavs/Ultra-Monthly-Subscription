@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./StreamTrack.css";
 
-// ── Config ────────────────────────────────────────────────────────────────────
+// ── Config //
 const ADMIN_PIN = "1234";
 const MAX_SLOTS = 6;
 
