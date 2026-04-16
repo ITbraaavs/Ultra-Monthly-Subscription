@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: #07090f; }
+::-webkit-scrollbar-thumb { background: #1a2235; border-radius: 2px; }
+
+/* ── Base ────────────────────────────────────────────────────────────────────── */
+body {
+  background: #07090f;
+  color: #dde4f0;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Utilities ───────────────────────────────────────────────────────────────── */
+select  { appearance: none; cursor: pointer; }
+textarea { resize: vertical; }
+input[type="date"] { color-scheme: dark; }
+
+/* ── Button ──────────────────────────────────────────────────────────────────── */
+.btn {
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.btn:active { transform: scale(0.96); }
+
+/* ── Input ───────────────────────────────────────────────────────────────────── */
+.inp {
+  background: #090d14;
+  border: 1px solid #1a2235;
+  border-radius: 8px;
+  color: #dde4f0;
+  padding: 10px 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.inp:focus { border-color: #3b7ef8; }
+
+/* ── Animations ──────────────────────────────────────────────────────────────── */
+.fade {
+  animation: fd 0.22s ease;
+}
+@keyframes fd {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Hover lift ──────────────────────────────────────────────────────────────── */
+.hl {
+  transition: transform 0.13s, box-shadow 0.13s;
+}
+.hl:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.56);
+}
+
+/* ── Toggle switch ───────────────────────────────────────────────────────────── */
+.tog {
+  cursor: pointer;
+  width: 38px;
+  height: 21px;
+  border-radius: 11px;
+  position: relative;
+  transition: background 0.18s;
+  flex-shrink: 0;
+}
+.tog span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 3px;
+  transition: left 0.18s;
+}
+
+/* ── Chip / badge ────────────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── Upload drop zone ────────────────────────────────────────────────────────── */
+.drop {
+  border: 1.5px dashed #1a2235;
+  border-radius: 10px;
+  padding: 22px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.drop:hover {
+  border-color: #3b7ef8;
+  background: rgba(59, 127, 248, 0.07);
+}
+
+/* ── Login page ──────────────────────────────────────────────────────────────── */
+.login-root {
+  min-height: 100vh;
+  background: #07090f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ── Admin / Member shell ────────────────────────────────────────────────────── */
+.app-root {
+  min-height: 100vh;
+  background: #07090f;
+  color: #dde4f0;
+}
+
+.top-bar {
+  border-bottom: 1px solid #1a2235;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: #07090f;
+  z-index: 100;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 4px;
+  padding: 9px 20px;
+  border-bottom: 1px solid #1a2235;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: transparent;
+  color: #4a5a78;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.tab-btn:active { transform: scale(0.96); }
+.tab-btn.active {
+  background: rgba(59, 127, 248, 0.13);
+  color: #3b7ef8;
+  border-color: rgba(59, 127, 248, 0.33);
+  font-weight: 600;
+}
+
+.page-content {
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────────────── */
+.card {
+  background: #0d1117;
+  border: 1px solid #1a2235;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+/* ── Summary grid ────────────────────────────────────────────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.summary-label {
+  font-size: 9px;
+  color: #4a5a78;
+  margin-bottom: 8px;
+  letter-spacing: 0.07em;
+}
+.summary-value {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* ── Service cards grid ──────────────────────────────────────────────────────── */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* ── People list ─────────────────────────────────────────────────────────────── */
+.people-list {
+  display: grid;
+  gap: 12px;
+}
+
+/* ── Person card date row ────────────────────────────────────────────────────── */
+.date-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 9px 13px;
+  background: #090d14;
+  border-radius: 9px;
+  border: 1px solid #1a2235;
+}
+.date-row-divider {
+  width: 1px;
+  background: #1a2235;
+}
+.date-label {
+  font-size: 9px;
+  color: #4a5a78;
+  letter-spacing: 0.07em;
+  margin-bottom: 3px;
+}
+.date-value {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ── Tracker list ────────────────────────────────────────────────────────────── */
+.tracker-list {
+  display: grid;
+  gap: 12px;
+}
+
+/* ── Month calendar row ──────────────────────────────────────────────────────── */
+.month-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 10px;
+  background: #090d14;
+  border-radius: 7px;
+  font-size: 11px;
+}
+
+/* ── Modal overlay ───────────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 20px;
+}
+.modal-box {
+  background: #0d1117;
+  border: 1px solid #1a2235;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-box.wide  { max-width: 520px; }
+.modal-box.narrow { max-width: 400px; }
+
+/* ── Section title ───────────────────────────────────────────────────────────── */
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* ── Progress bar ────────────────────────────────────────────────────────────── */
+.progress-track {
+  height: 3px;
+  background: #1a2235;
+  border-radius: 2px;
+}
+.progress-fill {
+  height: 3px;
+  border-radius: 2px;
+  transition: width 0.4s;
+}
+
+/* ── Subscription badge row ──────────────────────────────────────────────────── */
+.svc-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+/* ── Alert bar ───────────────────────────────────────────────────────────────── */
+.alert-bar {
+  background: rgba(240, 82, 82, 0.07);
+  border: 1px solid rgba(240, 82, 82, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #f05252;
+}
+
+/* ── Screenshot grid ─────────────────────────────────────────────────────────── */
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+/* ── Member view banner ──────────────────────────────────────────────────────── */
+.status-banner {
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.status-banner-icon { font-size: 38px; margin-bottom: 8px; }
+.status-banner-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .summary-grid   { grid-template-columns: 1fr 1fr; }
+  .services-grid  { grid-template-columns: 1fr; }
+}
